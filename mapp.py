@@ -1,16 +1,16 @@
 import os
 
 # Initial setup to create the directory and file (Components_List.md)
-path = 'K:\\IOT-Drone\\Hardware_Design\\Components_List.md'
+path = 'K:\\IOT-Drone\\IOT-Drone\\Hardware_Design\\Components_List.md'
 dir_path = os.path.dirname(path)
 if not os.path.exists(dir_path):
-    os.makedirs(dir_path)
+    os.makedirs(dir_path) 
 with open(path, "w") as f:
     pass
 
 # Define the desired folder structure
 folder_structure = {
-    "K:\\IOT-Drone": [
+    "K:\\IOT-Drone\\IOT-Drone": [
         "Arduino_Code\\drone_control",
         "Arduino_Code\\libraries\\Blynk",
         "Arduino_Code\\libraries\\ESP8266",
