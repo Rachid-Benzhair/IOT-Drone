@@ -1,13 +1,5 @@
 import os
 
-# Initial setup to create the directory and file (Components_List.md)
-path = 'K:\\IOT-Drone\\IOT-Drone\\Hardware_Design\\Components_List.md'
-dir_path = os.path.dirname(path)
-if not os.path.exists(dir_path):
-    os.makedirs(dir_path) 
-with open(path, "w") as f:
-    pass
-
 # Define the desired folder structure
 folder_structure = {
     "K:\\IOT-Drone\\IOT-Drone": [
@@ -26,7 +18,6 @@ folder_structure = {
     ]
 }
 
-# Iterate through the folder_structure dictionary
 for root, subdirs in folder_structure.items():
     # Create the root directory if it doesn't exist
     if not os.path.exists(root):
@@ -34,6 +25,10 @@ for root, subdirs in folder_structure.items():
     # Iterate through the subdirectories
     for subdir in subdirs:
         path = os.path.join(root, subdir)
+        dir_path = os.path.dirname(path)
+        # Create the parent directory of the file or folder if it doesn't exist
+        if not os.path.exists(dir_path):
+            os.makedirs(dir_path)
         # Create the subdirectory or file if it doesn't exist
         if not os.path.exists(path):
             if path.endswith(".md"):
@@ -41,3 +36,6 @@ for root, subdirs in folder_structure.items():
                     pass
             else:
                 os.makedirs(path)
+                # Create a .gitkeep file in each folder
+                with open(os.path.join(path, ".gitkeep"), "w") as f:
+                    pass
